@@ -215,5 +215,5 @@ async def play_response(query, message):
     #await message.channel.send(query)
     await message.channel.send(file=discord.File('waifu.mp4'), view=view)
 
-client.run('ODA4MjE1Mjg2OTE0MzUxMTU0.YCDTJA.-ld3QSLBCIJG2vwjdD17ujkeriA')
+client.run('')
 
