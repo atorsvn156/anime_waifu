@@ -6,7 +6,7 @@ import sys, math, numpy, wave, struct
 import scipy
 from scipy.fftpack import rfft
 import numpy as np
-import tensorflow as tf
+import tflite_runtime
 import os
 import cv2
 import discord
