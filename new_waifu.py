@@ -26,6 +26,10 @@ client = discord.Client()
 interpreter = tf.lite.Interpreter(model_path="./waifu.tflite", num_threads=8)
 interpreter.allocate_tensors()
 
+with open('waifu_config.json') as json_file:
+    CONFIG = json.load(json_file)
+
+	
 async def add_vid_subs(vid_in, query, vid_out):
 	with NTF(mode="w+") as f:
 		f.write(f"0\n00:00:00,000 --> 01:00:00,000\n{query}")
@@ -40,11 +44,11 @@ def waifu_query(query, user_id, user_name):
 	url = "https://waifu.p.rapidapi.com/path"
 
 	querystring = {
-			"user_id":user_id,
-			"message":query,
-			"from_name":user_name,
-			"to_name":"Waifu",
-			"situation": "It's "+now+" " +user_name + " and Waifu are hanging out on a Discord chat server.",
+			"user_id" : user_id,
+			"message" : query,
+			"from_name" : user_name,
+			"to_name": CONFIG["waifu-name"],
+			"situation": CONFIG["situation"],
 			"translate_from":"auto","translate_to":"auto"
 	}
 
@@ -59,8 +63,7 @@ def waifu_query(query, user_id, user_name):
 	headers = {
 		'content-type': "application/json",
 		'x-rapidapi-host': "waifu.p.rapidapi.com",
-		'x-rapidapi-key': ""
-	}
+		'x-rapidapi-key': CONFIG["rapid-api-key"]
 
 	try:
 		response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
@@ -68,14 +71,6 @@ def waifu_query(query, user_id, user_name):
 	except:
 		reply = "Hold on just a second baby. Gotta do something real quick."
 
-
-	with open("log.txt", "a") as log:
-		log.write("Senpai:"+query+"\n")
-		log.write("Waifu:"+reply+"\n")
-
-	log.close()
-
-	print(reply)
 	return str(reply)
 
 
@@ -213,7 +208,7 @@ async def do_tts(query, final_outfile):
 
 	response_mp3.close()
 	response_wav.close()
-	#await message.channel.send("```"+response_text+"```")
+
 
 async def play_response(query, message):
 	global IDLE
@@ -244,4 +239,4 @@ async def play_response(query, message):
 
 	final_outfile.close()
 
-client.run("")
+client.run(CONFIG["discord-token"])
