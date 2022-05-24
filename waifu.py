@@ -20,10 +20,10 @@ from tempfile import NamedTemporaryFile as NTF
 
 IDLE = True
 client = discord.Client()
-interpreter = tf.lite.Interpreter(model_path="./waifu.tflite", num_threads=8)
+interpreter = tf.lite.Interpreter(model_path="./model/waifu.tflite", num_threads=8)
 interpreter.allocate_tensors()
 
-with open('waifu_config.json') as json_file:
+with open('config/waifu_config.json') as json_file:
     CONFIG = json.load(json_file)
 
 	
@@ -81,7 +81,7 @@ def model_predict(d):
 
 	return(np.argmax(predictions))
 
-capture = cv2.VideoCapture('waifu_work2.mp4')  # reading the video
+capture = cv2.VideoCapture('assets/waifu_work2.mp4')  # reading the video
 success, image = capture.read()
 images = []  # creating empty list to store frames
 n_frame = 1
