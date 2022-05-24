@@ -9,9 +9,6 @@ import numpy as np
 import tflite_runtime
 import cv2
 import discord
-from discord.ext import commands
-from discord.ext.commands import MissingPermissions
-from discord.ext.commands import Bot
 from discord.ui import Button, View
 from discord import File
 import json
