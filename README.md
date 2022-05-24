@@ -4,4 +4,4 @@
 Run ```bash install.sh```
 
 ## Running bot
-Run ```python3 waifu.sh```
+Run ```python3 waifu.py```
