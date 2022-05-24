@@ -1,6 +1,5 @@
 opencv-python
 tflite-runtime
-discord
 scipy
 numpy
 gtts
