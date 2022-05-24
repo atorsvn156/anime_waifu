@@ -181,13 +181,13 @@ async def on_command_error(ctx, error):
 async def on_message(message):
 	if message.author == client.user:
 		return
-	if message.content.startswith('!waifu '):
-		query = re.sub('!waifu ', '', message.content)
+	if message.content.startswith(CONFIG["waifu-command"]):
+		query = re.sub(CONFIG["waifu-command"] + " ", '', message.content)
 		await play_response(query, message)
 	  
    
 async def do_tts(query, final_outfile): 
-	response_text = query #waifu_query(query)
+	response_text = waifu_query(query)
 
 	response_mp3 = NTF(mode="w+b",suffix=".mp3")
 	response_wav = NTF(mode="w+b",suffix=".wav")
