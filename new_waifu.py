@@ -9,11 +9,11 @@ import numpy as np
 import tflite_runtime
 import cv2
 import discord
+from discord.ext.commands import MissingPermissions
 from discord.ui import Button, View
 from discord import File
 import json
 import requests
-import datetime
 import asyncio
 import random
 from tempfile import NamedTemporaryFile as NTF
