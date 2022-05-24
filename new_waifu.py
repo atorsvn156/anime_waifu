@@ -7,7 +7,6 @@ import scipy
 from scipy.fftpack import rfft
 import numpy as np
 import tflite_runtime
-import os
 import cv2
 import discord
 from discord.ext import commands
@@ -16,12 +15,10 @@ from discord.ext.commands import Bot
 from discord.ui import Button, View
 from discord import File
 import json
-import sys
 import requests
 import datetime
 import asyncio
 import random
-
 from tempfile import NamedTemporaryFile as NTF
 
 IDLE = True
