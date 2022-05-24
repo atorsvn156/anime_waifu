@@ -20,7 +20,7 @@ from tempfile import NamedTemporaryFile as NTF
 
 IDLE = True
 client = discord.Client()
-interpreter = tf.lite.Interpreter(model_path="./model/waifu.tflite", num_threads=8)
+interpreter = tf.lite.Interpreter(model_path="./model/waifu.tflite") #, num_threads=8)
 interpreter.allocate_tensors()
 
 with open('config/waifu_config.json') as json_file:
