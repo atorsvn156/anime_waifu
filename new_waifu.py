@@ -62,7 +62,7 @@ def waifu_query(query, user_id, user_name):
 	headers = {
 		'content-type': "application/json",
 		'x-rapidapi-host': "waifu.p.rapidapi.com",
-		'x-rapidapi-key': "b119d596a3mshbed3c5090beeac9p1befc0jsn4089151c1ad9"
+		'x-rapidapi-key': ""
 	}
 
 	try:
@@ -247,4 +247,4 @@ async def play_response(query, message):
 
 	final_outfile.close()
 
-client.run('ODA4MjE1Mjg2OTE0MzUxMTU0.YCDTJA.-ld3QSLBCIJG2vwjdD17ujkeriA')
+client.run("")
