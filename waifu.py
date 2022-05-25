@@ -33,7 +33,7 @@ def cleanup():
     os.system("rm response.wav")
     os.system("rm waifu.mp4")
 
-def waifu_query(query, user_id, user_name, server_name, channel_name):
+def waifu_query(query, user_id, user_name):
     url = "https://waifu.p.rapidapi.com/path"
 
     querystring = {"user_id":user_id,"message":query,"from_name":user_name,"to_name":CONFIG['waifu-name'],"situation": CONFIG['situation'],"translate_from":"auto","translate_to":"auto"}
@@ -182,7 +182,7 @@ async def play_response(query, message):
     global IS_IDLE
     IS_IDLE = False
 
-    response = waifu_query(query, str(message.author.id), str(message.author.name), str(message.guild.name), str(message.channel.name))
+    response = waifu_query(query, str(message.author.id), str(message.author.name))
     await do_tts(response)
 
 
