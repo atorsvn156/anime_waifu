@@ -17,7 +17,7 @@ import json
 IS_IDLE = True
 idle_index = 0
 client = discord.Client()
-interpreter =  tflite.Interpreter(model_path="./model/waifu.tflite", num_threads=1)
+interpreter =  tflite.Interpreter(model_path="./model/waifu.tflite", num_threads=2)
 interpreter.allocate_tensors()
 
 with open('config/waifu_config.json') as json_file:
@@ -33,7 +33,7 @@ def cleanup():
     os.system("rm response.wav")
     os.system("rm waifu.mp4")
 
-def waifu_query(query, user_id, user_name):
+def waifu_query(query, user_id, user_name, server_name, channel_name):
     url = "https://waifu.p.rapidapi.com/path"
 
     querystring = {"user_id":user_id,"message":query,"from_name":user_name,"to_name":CONFIG['waifu-name'],"situation": CONFIG['situation'],"translate_from":"auto","translate_to":"auto"}
@@ -64,7 +64,6 @@ def waifu_query(query, user_id, user_name):
         reply = "Hold on just a second baby. Gotta do something."
 
     return str(reply)
-
 
 def model_predict(d):
     input_details = interpreter.get_input_details()
@@ -127,8 +126,6 @@ async def do_avatar(response_text):
     for count in range(int(nframes/float(framerate/12.5))):#(framerate/FPS))):
         h_old = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-
-
         num -= framerate/FPS
         num = int(num)
         try:
@@ -155,7 +152,7 @@ async def do_avatar(response_text):
     subprocess.run(["ffmpeg", "-i", "movie.mp4", "-i", "response.wav", "-map", "0:v:0", "-map", "1:a:0", "-r", "12.5", "-vcodec", "libx264", "output.mp4"])
     await add_vid_subs("output.mp4", response_text,"waifu.mp4")
     return 23
-   
+  
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -185,7 +182,7 @@ async def play_response(query, message):
     global IS_IDLE
     IS_IDLE = False
 
-    response = waifu_query(query, str(message.author.id), str(message.author.name))
+    response = waifu_query(query, str(message.author.id), str(message.author.name), str(message.guild.name), str(message.channel.name))
     await do_tts(response)
 
 
