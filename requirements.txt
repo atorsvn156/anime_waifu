@@ -3,3 +3,4 @@ tflite-runtime
 scipy
 numpy
 gtts
+discord
