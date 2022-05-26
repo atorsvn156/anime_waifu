@@ -1,5 +1,5 @@
 # waifu - Make your own AI Anime Waifu
-* Check it out on replit! https://replit.com/@ynhr/anime-waifu#.replit
+* Check it out on replit! https://replit.com/@ynhr/anime-waifu#
 
 # Sign up for Rapid API and create a discord bot
 1) Sign up for Rapid API and subscribe to WaifuAI - https://rapidapi.com/waifuai/api/waifu
