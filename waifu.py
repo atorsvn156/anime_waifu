@@ -71,7 +71,7 @@ def model_predict(d):
 
     return(np.argmax(predictions))
 
-capture = cv2.VideoCapture('assets/waifu_work2.mp4')  # reading the video
+capture = cv2.VideoCapture('assets/waifu-work_v1qSbbKX.mp4')  # reading the video
 success, image = capture.read()
 images = []  # creating empty list to store frames
 n_frame = 1
