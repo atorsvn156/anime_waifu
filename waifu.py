@@ -161,9 +161,8 @@ async def on_message(msg):
         query = re.sub(CONFIG['waifu-command'] + " ", '', msg.content)
         await play_response(query, msg)
       
-async def do_tts(query): 
+async def do_tts(response_text): 
     cleanup()
-    response_text = query #waifu_query(query)
     
     tts = gTTS(response_text,lang='en')
     tts.save('response.mp3')
