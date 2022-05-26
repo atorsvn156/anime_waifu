@@ -1,4 +1,5 @@
 # waifu - Make your own AI Anime Waifu
+* Check it out on replit! https://replit.com/@ynhr/anime-waifu#.replit
 
 # Sign up for Rapid API and create a discord bot
 1) Sign up for Rapid API and subscribe to WaifuAI - https://rapidapi.com/waifuai/api/waifu
@@ -10,4 +11,4 @@
 3) start the replit
 
 ## NOTE - ***You must add rapid-api-key and discord-token to secret keys on replit or it will not work.***
-https://replit.com/talk/learn/Hiding-your-secret-tokens-with-Replit-Secrets/139341
+* https://replit.com/talk/learn/Hiding-your-secret-tokens-with-Replit-Secrets/139341
