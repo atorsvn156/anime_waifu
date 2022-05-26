@@ -20,9 +20,6 @@ client = discord.Client()
 interpreter =  tflite.Interpreter(model_path="./model/waifu.tflite", num_threads=2)
 interpreter.allocate_tensors()
 
-with open('config/waifu_config.json') as json_file:
-    CONFIG = json.load(json_file)
-  
 async def add_vid_subs(vid_in, query, vid_out):
     with open("subs.srt", "w") as myfile:
         myfile.write("0\n00:00:00,000 --> 01:00:00,000\n"+query)
@@ -47,8 +44,7 @@ def waifu_query(query, user_id, user_name):
 
     headers = {
     'content-type': "application/json",
-    'x-rapidapi-host': "waifu.p.rapidapi.com",
-    'X-RapidAPI-Key': CONFIG['rapid-api-key']
+    'x-rapidapi-host':os.environ['rapid-api-key']
     }
     
     response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
@@ -188,5 +184,5 @@ async def play_response(query, message):
 
     await message.channel.send(file=discord.File('waifu.mp4'))
 
-client.run(CONFIG['discord-token'])
+client.run(os.environ['discord-token'])
 
