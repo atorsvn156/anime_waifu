@@ -12,3 +12,5 @@
 
 ## NOTE - ***You must add rapid-api-key and discord-token to secret keys on replit or it will not work.***
 * https://replit.com/talk/learn/Hiding-your-secret-tokens-with-Replit-Secrets/139341
+
+## T̸̃̅Ḣ̸̃É̵̛ ̷̉͗C̸͗͝Ȁ̶͝K̷̋̍Ė̷̋ ̸̉̋I̴̔͂S̷͛̎ ̴̽͊A̵͆̒ ̷͑̕L̷̐̄I̷͗̏E̶͐̃!̷̛̍!̴̿͊!̶͗͠
